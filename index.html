@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moonlight Observatory</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Moonlight Observatory</h1>
+    <p>Live cloud cover in Mississauga changes how clearly you can see the moon and stars in this illustration.</p>
+
+    <div class="sky" id="sky" aria-hidden="true">
+      <div class="stars"></div>
+      <div class="moon" hidden></div>
+      <div class="clouds"></div>
+    </div>
+
+    <p id="phase-name" role="status">Loading today’s moon phase…</p>
+
+    <div class="weather">
+      <p id="status" role="status">Loading cloud cover…</p>
+      <button id="refresh" type="button">Refresh sky data</button>
+    </div>
+    <p class="source">Weather from <a href="https://open-meteo.com/">Open-Meteo</a>. Moon phase from the <a href="https://aa.usno.navy.mil/data/api">U.S. Naval Observatory</a>.</p>
+  </main>
+</body>
+</html>

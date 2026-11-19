@@ -1,0 +1,143 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  color: #edf2ff;
+  background: #090e1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: min(44rem, calc(100% - 2rem));
+  margin: clamp(2rem, 8vw, 5rem) auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+}
+
+p {
+  color: #b8c6e0;
+  line-height: 1.5;
+}
+
+.sky {
+  --cloud-cover: 0;
+  position: relative;
+  height: clamp(15rem, 48vw, 23rem);
+  overflow: hidden;
+  border: 1px solid #324365;
+  border-radius: 1rem;
+  background: linear-gradient(#0c1228, #20345b);
+}
+
+.stars,
+.clouds {
+  position: absolute;
+  inset: 0;
+}
+
+.stars {
+  opacity: calc(1 - var(--cloud-cover));
+  background:
+    radial-gradient(circle at 19% 23%, #fff 1px, transparent 2px),
+    radial-gradient(circle at 68% 41%, #cbdcff 1px, transparent 2px),
+    radial-gradient(circle at 85% 78%, #dce7ff 1px, transparent 2px);
+  background-size: 137px 113px, 181px 147px, 103px 167px;
+}
+
+.moon {
+  --moonlight: #f3e9dc;
+  --shadow: #263657;
+  --phase-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(5rem, 19vw, 8rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: calc(1 - var(--cloud-cover) * 0.75);
+  overflow: hidden;
+  background: var(--shadow);
+}
+
+.moon::before,
+.moon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--moonlight);
+}
+
+.moon::before {
+  right: 0;
+  width: 50%;
+}
+
+.moon.waning::before {
+  right: auto;
+  left: 0;
+}
+
+.moon::after {
+  left: 50%;
+  width: var(--phase-width);
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.moon.crescent::after {
+  background: var(--shadow);
+}
+
+.clouds {
+  opacity: var(--cloud-cover);
+  background:
+    radial-gradient(ellipse at 28% 62%, #647695 0%, transparent 58%),
+    radial-gradient(ellipse at 74% 42%, #677792 0%, transparent 62%);
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 1rem;
+}
+
+.weather p {
+  margin: 0;
+}
+
+button {
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #6b7ea5;
+  border-radius: 0.5rem;
+  background: #233453;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.source {
+  font-size: 0.875rem;
+}
+
+a {
+  color: #c6d6ff;
+}
